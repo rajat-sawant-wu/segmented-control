@@ -73,13 +73,14 @@ const SegmentedControl = ({
         colorScheme === 'dark' && styles.darkControl,
         backgroundColor && {backgroundColor},
         !enabled && styles.disabled,
+        { borderColor: tintColor }
       ]}
       onLayout={({
         nativeEvent: {
           layout: {width},
         },
       }) => {
-        const newSegmentWidth = values.length ? width / values.length : 0;
+        const newSegmentWidth = values.length ? (width) / values.length : 0;
         if (newSegmentWidth !== segmentWidth) {
           animation.setValue(newSegmentWidth * (selectedIndex || 0));
           setSegmentWidth(newSegmentWidth);
@@ -117,7 +118,7 @@ const SegmentedControl = ({
             styles.slider,
             {
               transform: [{translateX: animation}],
-              width: segmentWidth - 4,
+              width: segmentWidth,
               backgroundColor:
                 tintColor || (colorScheme === 'dark' ? '#636366' : 'white'),
             },
@@ -134,7 +135,8 @@ const styles = StyleSheet.create({
     position: 'relative',
     height: 32,
     backgroundColor: '#EEEEF0',
-    borderRadius: 9,
+    borderRadius: 4,
+    borderWidth: 1
   },
   darkControl: {
     backgroundColor: '#1C1C1F',
@@ -144,11 +146,11 @@ const styles = StyleSheet.create({
   },
   slider: {
     position: 'absolute',
-    borderRadius: 7,
-    top: 2,
-    bottom: 2,
-    right: 2,
-    left: 2,
+    borderRadius: 0,
+    top: 0,
+    bottom: 0,
+    right: 0,
+    left: 0,
     borderWidth: 0.5,
     borderColor: 'rgba(0,0,0,0.04)',
     shadowColor: '#000',

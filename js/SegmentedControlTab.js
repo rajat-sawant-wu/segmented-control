@@ -105,10 +105,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     margin: 2,
-    borderRadius: 5,
+    borderRadius: 2,
   },
   activeText: {
-    fontWeight: '700',
+    // fontWeight: '700',
   },
   segmentImage: {
     width: 17,
